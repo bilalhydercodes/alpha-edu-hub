@@ -22,6 +22,9 @@ const PUBLIC_PATHS = [
   "/api/auth/me",
   "/api/auth/logout",
   "/api/auth/demo-login",
+  // Self-guarded: open only while no provider account exists (bootstrap),
+  // otherwise the handler requires an authenticated provider.
+  "/api/auth/register",
   "/api/demo-request",
   "/api/setup-demo",
   "/api/debug-role",
@@ -41,11 +44,12 @@ function isPublic(pathname: string): boolean {
  * resource-level ownership checks. */
 function apiAllowedRoles(pathname: string): string[] | null {
   if (pathname.startsWith("/api/admin/")) return ["admin", "SCHOOL_ADMIN", "SUPER_ADMIN"];
-  if (pathname.startsWith("/api/teacher/student-leave")) return ["teacher", "TEACHER", "admin", "SCHOOL_ADMIN", "SUPER_ADMIN"];
-  if (pathname.startsWith("/api/teacher/")) return ["teacher", "TEACHER", "SUPER_ADMIN"];
-  if (pathname.startsWith("/api/student/achievements/check")) return ["student", "STUDENT", "teacher", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"];
-  if (pathname.startsWith("/api/student/")) return ["student", "STUDENT", "SUPER_ADMIN"];
-  if (pathname.startsWith("/api/parent/")) return ["PARENT", "SUPER_ADMIN"];
+  if (pathname.startsWith("/api/teacher/student-leave")) return ["teacher", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"];
+  if (pathname.startsWith("/api/teacher/")) return ["teacher", "TEACHER"];
+  if (pathname.startsWith("/api/student/achievements")) return ["student", "STUDENT", "teacher", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"];
+  if (pathname.startsWith("/api/student/leave/")) return ["student", "STUDENT", "teacher", "TEACHER", "SCHOOL_ADMIN", "SUPER_ADMIN"];
+  if (pathname.startsWith("/api/student/")) return ["student", "STUDENT"];
+  if (pathname.startsWith("/api/parent/")) return ["PARENT"];
   return null;
 }
 
