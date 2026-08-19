@@ -4,7 +4,7 @@
  */
 
 import { cookies } from "next/headers";
-import { getServerSession, type TokenPayload } from "@/lib/auth";
+import { getServerSession, isDynamicUsageError, type TokenPayload } from "@/lib/auth";
 import prisma from "@/lib/prisma";
 
 export const VALID_ROLES = [
@@ -82,7 +82,8 @@ export async function getActiveSchoolId(): Promise<string | null> {
     try {
       const activeContext = cookies().get("super_admin_school_context")?.value;
       if (activeContext) return activeContext;
-    } catch {
+    } catch (error) {
+      if (isDynamicUsageError(error)) throw error;
       // Fall through to session.schoolId
     }
   }

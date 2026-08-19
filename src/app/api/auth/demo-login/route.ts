@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { signAccessToken, signRefreshToken, setAuthCookies } from "@/lib/auth";
 
+export const dynamic = "force-dynamic";
+
 // Demo user configurations - these bypass normal authentication
 const DEMO_USERS = {
   "demo.superadmin@alphaeduhub.com": {

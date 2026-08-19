@@ -4,6 +4,8 @@ import prisma from "@/lib/prisma";
 import SuperAdminSidebar from "@/components/super-admin/SuperAdminSidebar";
 import SuperAdminTopbar from "@/components/super-admin/SuperAdminTopbar";
 
+export const dynamic = "force-dynamic";
+
 export default async function SuperAdminLayout({
   children,
 }: {

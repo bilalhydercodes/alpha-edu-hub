@@ -1,6 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getMockData } from '@/lib/mockData';
 
+export const dynamic = "force-dynamic";
+
 // Catch-all API route for force work mode
 // Provides mock data when specific API routes fail or don't exist
 
