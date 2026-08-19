@@ -8,6 +8,19 @@ import { SignJWT, jwtVerify, type JWTPayload } from "jose";
 import { cookies } from "next/headers";
 import { NextRequest, NextResponse } from "next/server";
 
+/**
+ * Next.js signals "this route must be rendered dynamically" by throwing an error
+ * with this digest. Swallowing it makes the segment look static, so it has to be
+ * re-thrown by any helper that wraps `cookies()` / `headers()` in a try/catch.
+ */
+export function isDynamicUsageError(error: unknown): boolean {
+  return (
+    typeof error === "object" &&
+    error !== null &&
+    (error as { digest?: unknown }).digest === "DYNAMIC_SERVER_USAGE"
+  );
+}
+
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const ACCESS_TOKEN_COOKIE  = "access_token";
@@ -135,7 +148,8 @@ export async function getServerSession(): Promise<TokenPayload | null> {
     const token = cookieStore.get(ACCESS_TOKEN_COOKIE)?.value;
     if (!token) return null;
     return await verifyAccessToken(token);
-  } catch {
+  } catch (error) {
+    if (isDynamicUsageError(error)) throw error;
     return null;
   }
 }
