@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic'
+
 /**
  * GET /api/debug
  * Debug endpoint to check environment and database connectivity
