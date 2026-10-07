@@ -113,6 +113,8 @@ export default async function SchoolsPage({ searchParams }: PageProps) {
     console.error("Database connection failed in SuperAdminSchoolsPage:", error);
   }
 
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+
   return (
     <div className="space-y-6">
       {/* Header */}

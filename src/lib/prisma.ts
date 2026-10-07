@@ -4,11 +4,11 @@ import { mockPrismaClient } from './mockPrisma'
 let dbAvailable = false
 let connectionChecked = false
 
-const prismaClientSingleton = () => {
+const prismaClientSingleton = (): PrismaClient => {
   // If database is explicitly disabled, use mock client
   if (process.env.DISABLE_DATABASE === 'true') {
     console.log('🔧 Using mock Prisma client (database disabled)')
-    return mockPrismaClient
+    return mockPrismaClient as unknown as PrismaClient
   }
 
   return new PrismaClient({
@@ -42,7 +42,7 @@ export function isConnectionChecked() {
 
 // Test database connection on startup (force work mode - don't fail if connection fails)
 // Skip connection test during build time to prevent build failures
-if (process.env.NODE_ENV !== 'build' && process.env.NODE_ENV !== 'test') {
+if ((process.env.NODE_ENV as string) !== 'build' && process.env.NODE_ENV !== 'test') {
   // If database is explicitly disabled, skip connection test
   if (process.env.DISABLE_DATABASE === 'true') {
     console.log('⚠️ Database explicitly disabled, using mock data mode');

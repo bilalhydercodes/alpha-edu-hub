@@ -2,6 +2,8 @@
 import { mockStudents, mockTeachers, mockClasses, mockAttendance, mockAnnouncements, mockEvents, mockAssignments, mockExams, mockResults, mockMessages, mockFees, mockLeaveRequests, mockSubjects, mockParents, mockTimetable, mockLessons } from './mockData'
 
 class MockPrismaClient {
+  [key: string]: any;
+
   constructor() {
     // Create mock models for all Prisma models
     this.user = this.createMockModel('user')
@@ -39,7 +41,7 @@ class MockPrismaClient {
     this.subscriptionInvoice = this.createMockModel('subscriptionInvoice')
   }
 
-  createMockModel(modelName) {
+  createMockModel(modelName: string) {
     const mockData = this.getMockDataForModel(modelName)
     
     return {
@@ -55,7 +57,7 @@ class MockPrismaClient {
     }
   }
 
-  getMockDataForModel(modelName) {
+  getMockDataForModel(modelName: string) {
     switch(modelName) {
       case 'student': return mockStudents
       case 'teacher': return mockTeachers

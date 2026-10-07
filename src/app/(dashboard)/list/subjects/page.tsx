@@ -60,7 +60,7 @@ const SubjectListPage = async ({
     <tr key={item.id} className="border-b border-gray-200 even:bg-slate-50 text-sm hover:bg-lamaPurpleLight">
       <td className="flex items-center gap-4 p-4 font-medium">{item.name}</td>
       <td className="hidden md:table-cell">
-        {item.teachers.map((t) => `${t.name} ${t.surname}`).join(", ") || "—"}
+        {item.teachers.map((t: any) => `${t.name} ${t.surname}`).join(", ") || "—"}
       </td>
       <td>
         <div className="flex items-center gap-2">

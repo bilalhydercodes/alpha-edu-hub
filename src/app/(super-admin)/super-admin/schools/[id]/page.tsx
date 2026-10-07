@@ -164,7 +164,7 @@ export default async function SchoolDetailPage({ params }: PageProps) {
               <p className="text-white/30 text-xs py-2">No admin account assigned yet.</p>
             ) : (
               <div className="space-y-2">
-                {school.admins.map((adm) => (
+                {school.admins.map((adm: any) => (
                   <div key={adm.id} className="p-3 rounded-xl bg-white/5 border border-white/5 flex items-center justify-between text-xs">
                     <div>
                       <p className="text-white font-medium">{adm.username}</p>

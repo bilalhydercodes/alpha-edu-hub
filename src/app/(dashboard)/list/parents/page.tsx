@@ -125,14 +125,14 @@ const ParentListPage = async ({
         </div>
       </td>
       <td className="hidden md:table-cell text-gray-600">
-        {item.students.map((s) => `${s.name} ${s.surname}`).join(", ") || "—"}
+        {item.students.map((s: any) => `${s.name} ${s.surname}`).join(", ") || "—"}
       </td>
       <td>
         <div className="flex flex-wrap gap-1">
           {item.students.length === 0 ? (
             <span className="text-gray-400 text-xs">—</span>
           ) : (
-            item.students.map((s, i) => (
+            item.students.map((s: any, i: number) => (
               <span key={i} className="px-2.5 py-1 rounded-full bg-lamaPurple text-purple-800 text-xs font-semibold">
                 Class {s.class?.name ?? "—"}
               </span>
@@ -185,7 +185,7 @@ const ParentListPage = async ({
           <div className="flex flex-col">
             <span className="text-[10px] text-gray-400 uppercase font-semibold">Children</span>
             <div className="flex flex-wrap gap-1 mt-1">
-              {item.students.map((s, i) => (
+              {item.students.map((s: any, i: number) => (
                 <span key={i} className="text-xs text-gray-700 bg-gray-100 px-2 py-0.5 rounded-full">
                   {s.name} {s.surname} <span className="text-gray-400">({s.class?.name || "No Class"})</span>
                 </span>

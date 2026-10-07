@@ -14,7 +14,7 @@ export function safeDynamicImport<T extends ComponentType<any>>(
     importFn().catch((error) => {
       console.error(`Failed to load component: ${fallbackMessage}`, error);
       return {
-        default: fallback || (() => <div className="p-4 text-center text-gray-500">{fallbackMessage}</div>)
+        default: fallback || (() => React.createElement("div", { className: "p-4 text-center text-gray-500" }, fallbackMessage))
       };
     })
   );
@@ -26,14 +26,12 @@ export function withFallback<T extends object>(
 ) {
   return function SafeComponent(props: T) {
     try {
-      return <Component {...props} />;
+      return React.createElement(Component, props);
     } catch (error) {
       console.error('Component error:', error);
-      return FallbackComponent ? <FallbackComponent /> : (
-        <div className="p-4 text-center text-red-500">
-          Component temporarily unavailable
-        </div>
-      );
+      return FallbackComponent 
+        ? React.createElement(FallbackComponent, null) 
+        : React.createElement("div", { className: "p-4 text-center text-red-500" }, "Component temporarily unavailable");
     }
   };
 }
