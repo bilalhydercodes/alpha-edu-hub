@@ -9,11 +9,11 @@ const plans = [
   {
     name: "Starter",
     description: "Perfect for small schools just getting started.",
-    monthlyPrice: 25,
-    yearlyPrice: 20,
+    priceDisplay: "Coming Soon",
+    priceSubtext: "Early bird access at launch",
     color: "from-slate-500/20 to-slate-600/10",
     border: "border-white/10",
-    cta: "Get Started",
+    cta: "Join Waitlist",
     ctaClass: "bg-white/8 hover:bg-white/15 text-white border border-white/15",
     features: [
       { text: "Up to 300 students", included: true },
@@ -30,12 +30,12 @@ const plans = [
   {
     name: "Growth",
     description: "The most popular plan for growing institutions.",
-    monthlyPrice: 30,
-    yearlyPrice: 25,
+    priceDisplay: "Coming Soon",
+    priceSubtext: "Special introductory discount",
     color: "from-blue-500/20 to-purple-600/15",
     border: "border-blue-500/30",
     badge: "Most Popular",
-    cta: "Start Free Trial",
+    cta: "Get Early Access",
     ctaClass: "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-500 hover:to-purple-500 text-white shadow-lg shadow-blue-500/25",
     features: [
       { text: "Up to 1,500 students", included: true },
@@ -52,8 +52,8 @@ const plans = [
   {
     name: "Enterprise",
     description: "Built for large districts and multi-campus groups.",
-    monthlyPrice: null,
-    yearlyPrice: null,
+    priceDisplay: "Custom",
+    priceSubtext: "Tailored institutional deployment",
     color: "from-purple-500/20 to-pink-600/10",
     border: "border-purple-500/20",
     cta: "Contact Sales",
@@ -73,7 +73,6 @@ const plans = [
 ];
 
 export default function Pricing() {
-  const [yearly, setYearly] = useState(true);
   const [activeCard, setActiveCard] = useState(0);
 
   return (
@@ -90,35 +89,23 @@ export default function Pricing() {
           viewport={{ once: true }}
           className="text-center mb-12"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-green-500/30 bg-green-500/10 text-green-300 text-sm font-medium mb-4">
-            <Zap className="w-3.5 h-3.5" />
-            Simple, transparent pricing
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-blue-500/30 bg-blue-500/10 text-blue-300 text-sm font-medium mb-4">
+            <Zap className="w-3.5 h-3.5 text-blue-400" />
+            Pricing Plans · Launching Soon
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-4">
             Invest in your school&apos;s{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-indigo-300 to-purple-400">
               future
             </span>
           </h2>
-          <p className="text-white/50 text-lg max-w-2xl mx-auto mb-8">
-            No hidden fees, no per-student charges. Flat pricing that scales with your institution.
+          <p className="text-white/50 text-lg max-w-2xl mx-auto mb-6">
+            Transparent, predictable pricing without per-student markups. Official plans are coming very soon with early bird launch privileges.
           </p>
 
-          {/* Toggle */}
-          <div className="inline-flex items-center gap-3 p-1.5 rounded-2xl border border-white/10 bg-white/5">
-            <button
-              onClick={() => setYearly(false)}
-              className={`px-5 py-2 rounded-xl text-sm font-medium transition-all ${!yearly ? "bg-white/15 text-white" : "text-white/50 hover:text-white/70"}`}
-            >
-              Monthly
-            </button>
-            <button
-              onClick={() => setYearly(true)}
-              className={`px-5 py-2 rounded-xl text-sm font-medium transition-all flex items-center gap-2 ${yearly ? "bg-white/15 text-white" : "text-white/50 hover:text-white/70"}`}
-            >
-              Yearly
-              <span className="px-2 py-0.5 rounded-full bg-green-500/20 text-green-400 text-xs font-semibold">Save 20%</span>
-            </button>
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-2xl border border-white/10 bg-white/5 text-white/70 text-xs font-medium">
+            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+            Early access registration open for educational institutions
           </div>
         </motion.div>
 
@@ -155,21 +142,14 @@ export default function Pricing() {
 
                   {/* Price */}
                   <div className="mb-5">
-                    {plan.monthlyPrice ? (
-                      <div className="flex items-end gap-1">
-                        <span className="text-3xl font-extrabold text-white">
-                          ₹{yearly ? plan.yearlyPrice : plan.monthlyPrice}
-                        </span>
-                        <span className="text-white/40 text-xs pb-1">/month</span>
-                      </div>
-                    ) : (
-                      <div className="text-2xl font-extrabold text-white">Custom</div>
-                    )}
-                    {plan.monthlyPrice && yearly && (
-                      <p className="text-white/40 text-[10px] mt-1">
-                        Billed yearly · ₹{plan.yearlyPrice! * 12}/yr
-                      </p>
-                    )}
+                    <div className="flex items-baseline gap-1.5">
+                      <span className="text-2xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/90 to-blue-200">
+                        {plan.priceDisplay}
+                      </span>
+                    </div>
+                    <p className="text-white/40 text-[11px] mt-1">
+                      {plan.priceSubtext}
+                    </p>
                   </div>
 
                   {/* Features */}
@@ -223,21 +203,14 @@ export default function Pricing() {
 
                 {/* Price */}
                 <div className="mb-6">
-                  {plan.monthlyPrice ? (
-                    <div className="flex items-end gap-1">
-                      <span className="text-4xl font-extrabold text-white">
-                        ₹{yearly ? plan.yearlyPrice : plan.monthlyPrice}
-                      </span>
-                      <span className="text-white/40 text-sm pb-1">/month</span>
-                    </div>
-                  ) : (
-                    <div className="text-3xl font-extrabold text-white">Custom</div>
-                  )}
-                  {plan.monthlyPrice && yearly && (
-                    <p className="text-white/40 text-xs mt-1">
-                      Billed yearly · ₹{plan.yearlyPrice! * 12}/yr
-                    </p>
-                  )}
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-3xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-white via-white/95 to-blue-200">
+                      {plan.priceDisplay}
+                    </span>
+                  </div>
+                  <p className="text-white/40 text-xs mt-1.5">
+                    {plan.priceSubtext}
+                  </p>
                 </div>
 
                 {/* Features */}

@@ -175,8 +175,8 @@ export default function Hero() {
               {/* Card header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-indigo-500 to-purple-600 flex items-center justify-center shadow-lg shadow-indigo-500/30">
-                    <GraduationCap className="w-6 h-6 text-white" />
+                  <div className="w-12 h-12 rounded-2xl bg-white/10 border border-white/10 flex items-center justify-center shadow-lg shadow-indigo-500/30 p-1.5">
+                    <img src="/logo-icon.png" alt="Alpha Edu Hub" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h3 className="text-white font-bold text-lg">Alpha Edu Hub</h3>

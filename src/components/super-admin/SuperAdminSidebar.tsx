@@ -99,8 +99,8 @@ export default function SuperAdminSidebar() {
       >
         {/* Logo */}
         <div className="flex items-center gap-3 px-4 h-16 border-b border-white/5">
-          <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/25 overflow-hidden">
-            <img src="/logo.png" alt="Logo" className="w-7 h-7 object-contain" />
+          <div className="w-9 h-9 rounded-xl bg-white/10 border border-white/15 flex items-center justify-center flex-shrink-0 shadow-lg shadow-purple-500/25 overflow-hidden p-1">
+            <img src="/logo-icon.png" alt="Logo" className="w-full h-full object-contain" />
           </div>
           {!collapsed && (
             <div className="overflow-hidden">

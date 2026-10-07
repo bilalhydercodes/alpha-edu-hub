@@ -79,8 +79,8 @@ export default function TeacherSidebar({
       <div className="flex h-16 items-center justify-between px-4 border-b border-gray-200/50">
         {!isCollapsed && (
           <div className="flex items-center gap-3">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-lg shadow-indigo-500/30 overflow-hidden">
-              <img src="/logo.png" alt="Logo" className="w-6 h-6 object-contain" />
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 border border-blue-100 shadow-sm overflow-hidden p-0.5">
+              <img src="/logo-icon.png" alt="Logo" className="w-full h-full object-contain" />
             </div>
             <span className="font-semibold text-gray-900">Alpha Edu</span>
           </div>
@@ -162,8 +162,8 @@ export default function TeacherSidebar({
           <div className="flex h-full flex-col">
             <div className="flex h-16 items-center justify-between px-4 border-b border-gray-200">
               <div className="flex items-center gap-3">
-                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-white shadow-lg shadow-indigo-500/30 overflow-hidden">
-                  <img src="/logo.png" alt="Logo" className="w-6 h-6 object-contain" />
+                <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-blue-50 border border-blue-100 shadow-sm overflow-hidden p-0.5">
+                  <img src="/logo-icon.png" alt="Logo" className="w-full h-full object-contain" />
                 </div>
                 <span className="font-semibold text-gray-900">Alpha Edu</span>
               </div>

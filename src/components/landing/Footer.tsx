@@ -37,9 +37,9 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-1 sm:col-span-2 lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-4 group">
-              <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
-                <GraduationCap className="w-5 h-5 text-white" />
+            <Link href="/" className="flex items-center gap-3 mb-4 group">
+              <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shadow-lg shadow-blue-500/20 p-1.5 group-hover:scale-105 transition-transform">
+                <img src="/logo-icon.png" alt="Alpha Edu Hub Logo" className="w-full h-full object-contain" />
               </div>
               <span className="font-bold text-white text-lg tracking-tight">
                 Alpha{" "}

@@ -167,8 +167,8 @@ export default function DemoModal({ open, onClose }: DemoModalProps) {
               {/* Header */}
               <div className="flex items-start justify-between p-6 pb-4">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/25">
-                    <GraduationCap className="w-5 h-5 text-white" />
+                  <div className="w-10 h-10 rounded-xl bg-white/10 border border-white/10 flex items-center justify-center shadow-lg shadow-blue-500/25 p-1.5">
+                    <img src="/logo-icon.png" alt="Alpha Edu Hub" className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h2 className="text-white font-bold text-lg">Book a Live Demo</h2>

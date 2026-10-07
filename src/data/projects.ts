@@ -91,8 +91,8 @@ export const projects: Project[] = [
       plans: [
         {
           name: "Starter",
-          price: "Free",
-          period: "forever",
+          price: "Coming Soon",
+          period: "early access",
           features: [
             "Up to 100 students",
             "Basic attendance tracking",
@@ -103,8 +103,8 @@ export const projects: Project[] = [
         },
         {
           name: "Professional",
-          price: "₹20",
-          period: "per month",
+          price: "Coming Soon",
+          period: "early bird",
           popular: true,
           features: [
             "Up to 500 students",
@@ -120,7 +120,7 @@ export const projects: Project[] = [
         {
           name: "Enterprise",
           price: "Custom",
-          period: "pricing",
+          period: "tailored",
           features: [
             "Unlimited students",
             "White-label solution",

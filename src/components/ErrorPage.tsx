@@ -47,8 +47,8 @@ export default function ErrorPage({
       <div className="bg-white rounded-2xl shadow-md w-full max-w-xl p-8 flex flex-col items-center gap-6">
 
         {/* Logo */}
-        <div className="w-16 h-16 rounded-xl bg-white shadow-lg flex items-center justify-center overflow-hidden">
-          <img src="/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+        <div className="w-16 h-16 rounded-2xl bg-blue-50/80 border border-blue-100 shadow-sm flex items-center justify-center overflow-hidden p-2">
+          <img src="/logo.png" alt="Logo" className="w-full h-full object-contain" />
         </div>
 
         {/* ── Illustration ── */}

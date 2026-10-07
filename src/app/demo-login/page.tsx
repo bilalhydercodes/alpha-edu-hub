@@ -237,8 +237,8 @@ export default function DemoLoginPage() {
             <div className="bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 px-8 py-8 text-center relative overflow-hidden">
               <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/80 via-purple-600/80 to-pink-600/80 backdrop-blur-sm" />
               <div className="relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 shadow-lg shadow-indigo-500/30 overflow-hidden">
-                  <img src="/logo.png" alt="Logo" className="w-12 h-12 object-contain" />
+                <div className="w-18 h-18 rounded-2xl bg-white/95 backdrop-blur-sm flex items-center justify-center mx-auto mb-4 shadow-xl shadow-indigo-500/30 overflow-hidden p-2">
+                  <img src="/logo.png" alt="Alpha Edu Hub" className="w-full h-full object-contain" />
                 </div>
                 <h1 className="text-white font-bold text-2xl tracking-tight">Alpha Edu Hub</h1>
                 <p className="text-white/80 text-sm mt-2 font-light">Smart Schools. Smarter Future.</p>

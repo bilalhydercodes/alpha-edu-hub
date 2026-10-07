@@ -11,8 +11,8 @@ export const metadata: Metadata = {
   title: "Alpha Edu Hub - School Management Dashboard",
   description: "Alpha Edu Hub School Management System",
   icons: {
-    icon: "/logo.png",
-    shortcut: "/logo.png",
+    icon: "/logo-icon.png",
+    shortcut: "/logo-icon.png",
     apple: "/logo.png",
   },
 };
